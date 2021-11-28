@@ -5,7 +5,7 @@ class ApiError extends Error {
     this.message = message;
   }
 
-  static bedRequest(message) {
+  static badRequest(message) {
     return new ApiError(404, message);
   }
 
@@ -18,4 +18,4 @@ class ApiError extends Error {
   }
 }
 
-module.exports = new ApiError();
+module.exports = ApiError;

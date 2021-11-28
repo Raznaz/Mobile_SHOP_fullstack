@@ -1,3 +1,5 @@
+const apiError = require('../error/apiError');
+
 class userController {
   async registration(req, res) {
     console.log('rest');
@@ -7,8 +9,11 @@ class userController {
     console.log('test');
   }
 
-  async check(req, res) {
+  async check(req, res, next) {
     const { id } = req.query;
+    if (!id) {
+      return next(apiError.badRequest('NO HAVE ID'));
+    }
     res.json(id);
   }
 }
